@@ -20,7 +20,10 @@ recognition.onstart = () => {
 
 recognition.onresult = (event) => {
     const transcript = event.results[0][0].transcript;
-    outputDiv.textContent = transcript;
+    let numbers = transcript.replace(/[^0-9+\-*/().]/g, '');
+   
+    // Display output if number extracted
+    outputDiv.textContent = numbers;
 };
 
 recognition.onend = () => {
